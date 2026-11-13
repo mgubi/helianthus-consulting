@@ -1,0 +1,117 @@
+/* Helianthus Consulting UK Ltd: the house style of the stationery
+   (Helianthus/Stationery: build/make_style.py) for the web. */
+
+@font-face { font-family: "Jost"; src: url("assets/fonts/Jost-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("assets/fonts/Jost-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Jost Label"; src: url("assets/fonts/JostLabel-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Source Sans 3"; src: url("assets/fonts/SourceSans3-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Source Sans 3"; src: url("assets/fonts/SourceSans3-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Source Sans 3"; src: url("assets/fonts/SourceSans3-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  --ink: #2E3039;     /* body text */
+  --slate: #4B4E5C;   /* headings, labels, wordmark grey */
+  --grey: #5E616D;    /* secondary text */
+  --accent: #E3981F;  /* sunflower amber */
+  --rule: #D9D6CF;    /* rules */
+  --paper: #FDFCF9;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  /* the faint sunflower of the stationery's backgrounds */
+  background-image: url("assets/helianthus-mark.svg");
+  background-repeat: no-repeat;
+  background-position: right -120px bottom -90px;
+  background-size: 520px auto;
+}
+body::before {
+  /* fade the sunflower so that it stays a watermark */
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.wordmark { height: 110px; width: auto; display: block; }
+.address-block {
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--slate);
+  text-align: right;
+}
+.address-block a { color: var(--ink); }
+
+.accent-bar {
+  height: 3px;
+  background: var(--accent);
+  margin: 22px 0 40px;
+  width: 64px;
+}
+
+main { flex: 1; }
+section { margin-bottom: 32px; }
+.label {
+  font-family: "Jost Label", "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin: 0 0 8px;
+}
+p { margin: 0; max-width: 62ch; }
+p + p { margin-top: 0.45em; }
+p em { font-style: normal; font-weight: 700; color: var(--slate); }
+
+a { color: var(--slate); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+
+.legal {
+  margin-top: 48px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-size: 13px;
+  color: var(--grey);
+}
+.legal .sep { color: var(--accent); margin: 0 0.35em; }
+
+@media (max-width: 560px) {
+  .page { padding-top: 32px; }
+  .wordmark { height: 84px; }
+  .address-block { text-align: left; }
+  body { background-size: 360px auto; background-position: right -110px bottom -70px; }
+}
