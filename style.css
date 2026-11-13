@@ -65,15 +65,6 @@ body::before {
   flex-wrap: wrap;
 }
 .wordmark { height: 110px; width: auto; display: block; }
-.address-block {
-  font-family: "Jost", sans-serif;
-  font-style: normal;
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--slate);
-  text-align: right;
-}
-.address-block a { color: var(--ink); }
 
 .accent-bar {
   height: 3px;
@@ -112,6 +103,5 @@ a:hover { color: var(--accent); }
 @media (max-width: 560px) {
   .page { padding-top: 32px; }
   .wordmark { height: 84px; }
-  .address-block { text-align: left; }
   body { background-size: 360px auto; background-position: right -110px bottom -70px; }
 }
